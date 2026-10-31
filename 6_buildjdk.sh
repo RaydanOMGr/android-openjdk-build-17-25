@@ -92,6 +92,10 @@ else
   HOMEBREW_NO_AUTO_UPDATE=1 brew install fontconfig ldid xquartz autoconf
 fi
 
+if [[ $TARGET_VERSION -eq 25 ]]; then
+  platform_args+=" --with-external-symbols-in-bundles=full"
+fi
+
 # fix building libjawt
 ln -s -f $CUPS_DIR/cups $ANDROID_INCLUDE/
 
